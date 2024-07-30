@@ -5,7 +5,7 @@ input = sys.stdin.readline
 S = set()
 M = int(input())
 
-all_set = set(str(i) for i in range(1, 21))
+all = set(str(i) for i in range(1, 21))
 
 for _ in range(M):
     order = input().strip().split()
@@ -23,6 +23,6 @@ for _ in range(M):
         else:
             S.add(order[1])
     elif order[0] == 'all':
-        S = all_set.copy()
+        S = all.copy()
     else:
         S = set()
