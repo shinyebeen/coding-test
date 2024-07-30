@@ -1,18 +1,19 @@
 import sys
+
 input = sys.stdin.readline
 
 S = set()
-M = int(input().strip())
+M = int(input())
 
-all_elements = set(str(i) for i in range(1, 21))
-result = []
+all_set = set(str(i) for i in range(1, 21))
 
 for _ in range(M):
     order = input().strip().split()
     
+    # if order[0] == 'add' and order[1] not in S: # set은 중복 제거되므로 not in 조건 필요 없음
     if order[0] == 'add':
         S.add(order[1])
-    elif order[0] == 'remove':
+    elif order[0] == 'remove': # discard 사용해서 삭제하려는 요소가 집합 안에 없어도 오류가 나지 않도록 함
         S.discard(order[1])
     elif order[0] == 'check':
         print(1) if order[1] in S else print(0)
@@ -22,7 +23,6 @@ for _ in range(M):
         else:
             S.add(order[1])
     elif order[0] == 'all':
-        S = all_elements.copy()
-    elif order[0] == 'empty':
+        S = all_set.copy()
+    else:
         S = set()
-
