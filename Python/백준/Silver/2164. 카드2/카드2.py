@@ -1,11 +1,15 @@
 from collections import deque
+from sys import stdin as s
 
-n = int(input())
-queue = deque(i for i in range(1, n+1))
+n = int(s.readline().strip())
+card = deque(i for i in range(1, n+1))
+turn = 0
 
-while len(queue) > 1:
-    queue.popleft()
-    queue.append(queue[0])
-    queue.popleft()
+while len(card) > 1:
+    card.popleft()
+    card.append(card[0])
+    card.popleft()
 
-print(queue.pop())
+print(card[0])
+    
+
