@@ -1,14 +1,16 @@
 from sys import stdin as s
-
 from collections import Counter 
 
-s = list(map(int, list(s.readline().rstrip())))
-counter = list(Counter(s).items())
-counter.sort(key=lambda x : x[0])
+S = list(s.readline().rstrip())
+cnt_0 = S.count('0')
+cnt_1 = S.count('1')
 
-res = ''
+for i in range(cnt_1//2):
+    S.remove('1')
 
-for i in range(2):
-    res += f'{counter[i][0]}'*(counter[i][1] // 2)
+S = S[::-1]
 
-print(res)
+for i in range(cnt_0//2):
+    S.remove('0')
+
+print(''.join(S[::-1]))
