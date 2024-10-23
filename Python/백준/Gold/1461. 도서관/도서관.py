@@ -18,10 +18,7 @@ answer = 0
 
 while pos:
     cnt = 0
-
     answer += pos[-1] * 2
-    cnt += 1
-    pos.pop()
 
     while pos and cnt < m:
         cnt += 1
@@ -29,10 +26,7 @@ while pos:
 
 while neg:
     cnt = 0
-
     answer += neg[-1] * 2
-    cnt += 1
-    neg.pop()
 
     while neg and cnt < m:
         cnt += 1
