@@ -7,21 +7,17 @@ def row(li):
             if li[i][j] == '.':
                 cnt_r += 1
             else:
-                if cnt_r >= 2:
-                    answer[0] += 1
                 cnt_r = 0
+            if cnt_r == 2:
+                answer[0] += 1
+
             # 세로
             if li[j][i] == '.':
                 cnt_c += 1
             else:
-                if cnt_c >= 2:
-                    answer[1] += 1
                 cnt_c = 0
-                
-        if cnt_r >= 2:
-            answer[0] += 1
-        if cnt_c >= 2:
-            answer[1] += 1
+            if cnt_c == 2:
+                answer[1] += 1
 
     return answer
 
