@@ -1,7 +1,10 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
 sand_map = [list(map(int, input().split())) for _ in range(n)]
 
-result = 0
+result = 0 # 격자 밖 모래양
 now = [n//2, n//2]
 
 left = [[-2, 0, 0.02], [2, 0, 0.02], [-1, -1, 0.1],
@@ -23,7 +26,6 @@ def wind(move, dx, dy, direct):
         # 퍼지는 모래양 누적
         spread = 0
         
-        # 회오리 끝난 경우
         if now[0] < 0 or now[1] < 0:
             break 
 
@@ -31,7 +33,7 @@ def wind(move, dx, dy, direct):
             nx = now[0] + rx 
             ny = now[1] + ry 
 
-            # 퍼지지 않고 남은 모래
+            # 퍼지지 않고 남은 모래(알파)
             if r==0:
                 sand = sand_map[now[0]][now[1]] - spread 
             else:
